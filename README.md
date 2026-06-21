@@ -118,14 +118,15 @@ Measured on a **held-fixed eval slice** (same tasks before vs. after training):
 | Slice | Base reward | Trained | Δ | Bail rate (base → trained) |
 |-------|------------:|--------:|----:|---------------------------|
 | Mixed (easy + hard) | 0.358 | 0.364 | +0.01 | 45% → 42% |
-| **Hard (difficulty 0.5)** | **0.160** | **0.260** | **+0.10 (+63%)** | **75% → 55%** |
+| **Hard (difficulty 0.5)** | **0.160** | **0.290** | **+0.13 (+81%)** | **75% → 57%** |
 
 Training is flat on easy tasks — the base already solves them, so there is no
 headroom — and the gains concentrate exactly where temporal reasoning is hard:
-**hard-task mean reward 0.16 → 0.26 (+63% relative)** with the no-answer "bail"
-rate cut from **75% → 55%**. Averaging easy + hard hides this (a poorly chosen
-eval set washes a real +0.10 down to +0.01), which is itself a useful lesson:
-evaluate where the headroom is.
+**hard-task mean reward 0.16 → 0.29 (+81% relative)** with the no-answer "bail"
+rate cut from **75% → 57%**. Averaging easy + hard hides this (a poorly chosen
+eval set washes a real +0.13 down to +0.01), which is itself a useful lesson:
+evaluate where the headroom is. (Numbers are from a held-fixed 20-task hard
+slice — the same tasks before and after; per-step training means are noisier.)
 
 ## Design notes
 
