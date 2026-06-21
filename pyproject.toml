@@ -1,0 +1,33 @@
+[project]
+name = "tempora"
+version = "0.1.0"
+description = "Tempora — HUD v6 RL environment for temporality-reasoning deep-research agents (dated/relative/undated/conflicting sources, stale aggregators, social posts) graded by a standalone programmatic grader"
+# v6 SDK caps at <3.13; pin the upper bound so uv does not pick 3.13 and fail.
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "hud-python>=0.6.5",
+    "fastmcp>=3,<4",
+    "httpx>=0.23.0,<1",
+    "pyyaml>=6.0",
+]
+
+# Test-only tools: installed by `uv sync` for local dev, kept out of the deployed image.
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hud]
+image = "tempora:dev"
+
+[tool.hatch.build]
+only-packages = false
+include = ["env.py", "tasks.py", "grader.py", "generator.py", "queries.yaml"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

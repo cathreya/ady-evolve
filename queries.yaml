@@ -1,0 +1,45 @@
+# Curated query list for the Tempora environment.
+# tasks.py expands the cartesian product (queries x seeds x difficulties) into a
+# Taskset. The generator infers the query kind and topic from each query's text;
+# `kind` here is kept in sync with infer_kind() for clarity and for selecting the
+# matching task template.
+
+seeds: [0, 1, 2, 3, 4]
+difficulties: [0.2, 0.5]   # low vs high temporal-clarity adversity
+
+queries:
+  # --- deals (kind: deal) ---
+  - kind: deal
+    text: "deals on AI model subscriptions right now"
+  - kind: deal
+    text: "GPU cloud rental deals available now"
+  - kind: deal
+    text: "noise-cancelling headphones on sale right now"
+  - kind: deal
+    text: "SaaS lifetime deals currently live"
+
+  # --- events (kind: event) ---
+  - kind: event
+    text: "AI research conferences I can still register for right now"
+  - kind: event
+    text: "developer meetups happening this week I can attend"
+  - kind: event
+    text: "LLM fine-tuning webinars I can still join"
+  - kind: event
+    text: "hardware hackathons open for registration right now"
+
+  # --- status (kind: status) ---
+  - kind: status
+    text: "coding bootcamps currently accepting applications"
+  - kind: status
+    text: "grant applications open right now"
+  - kind: status
+    text: "accelerator programs accepting applications now"
+  - kind: status
+    text: "fellowship applications currently open"
+
+  # --- summary (kind: summary) ---
+  - kind: summary
+    text: "what's currently true about VR headset deals"
+  - kind: summary
+    text: "what's happening right now with AI research conferences"
